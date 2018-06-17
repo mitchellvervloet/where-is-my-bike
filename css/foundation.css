@@ -443,8 +443,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #fefefe;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
   font-weight: normal;
   line-height: 1.5;
   color: #0a0a0a;
