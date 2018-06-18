@@ -1,4 +1,8 @@
 /* START basic elements styling (ATOMS) */
+body {
+    background: linear-gradient(lightskyblue, lightblue) !important;
+}
+
 .container {
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
@@ -30,6 +34,11 @@ a {
     text-decoration: none;
     text-transform: inherit;
     vertical-align: baseline;
+}
+
+i {
+    font-family: FontAwesome;
+    font-style: normal;
 }
 
 a:hover {
@@ -135,9 +144,142 @@ header .container {
     align-items: center;
     display: flex;
     flex-flow: nowrap row;
+    justify-content: space-between;
+}
+
+nav {
+    align-self: stretch;
+    align-items: stretch;
+    display: flex;
+}
+
+nav .menu {
+    align-items: stretch;
+    display: flex;
+}
+
+.menu li {
+    align-items: center;
+    display: flex;
+    padding: 0 20px;
+}
+
+.menu li:hover {
+    background-color: #EDEDED;
+    cursor: pointer;
 }
 /*  END Header */
 
 /* START index page */
+.container.content {
+    display: flex;
+    flex-flow: nowrap row;
+    height: calc(100vh - 60px);
+    padding: 40px 0;
+}
 
+.content .map-container {
+    background-color: #EDEDED;
+    box-shadow: 0px 0px 10px 2px rgba(171,171,171,0.5);
+    flex-basis: 75%;
+    margin-right: 20px;
+}
+
+.content .right {
+    display: flex;
+    flex-flow: nowrap column;
+    flex-basis: 25%;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.content .bikes {
+    background-color: #EDEDED;
+    box-shadow: 0px 0px 10px 2px rgba(171,171,171,0.5);
+    flex: 1 1 auto;
+    padding: 20px 0;
+}
+
+.bikes .title-l {
+    margin-bottom: 10px;
+    padding: 0 20px;
+}
+
+.bikes ul {
+    margin-left: 0;
+}
+
+.bikes .bike {
+    align-items: center;
+    border-top: 1px solid lightgrey;
+    display: flex;
+    flex-flow: nowrap row;
+    padding: 10px 20px;
+}
+
+.bikes .bike:last-of-type {
+    border-bottom: 1px solid lightgrey;
+}
+
+.bikes .add-bike {
+    align-items: center;
+    border-top: 1px solid lightgrey;
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.bike:hover,
+.bike.is_active {
+    background-color: #cdcdcd;
+    cursor: pointer;
+}
+
+.bike .bike__img {
+    border-radius: 50%;
+    background-color: white;
+    height: 40px;
+    margin-right: 10px;
+    width: 40px;
+}
+
+.bike .bike__content {
+    display: flex;
+    flex-flow: nowrap column;
+}
+
+.bike__content .title-xs,
+.bike__content p {
+    margin-bottom: 0;
+}
+
+.bike-detail {
+    background-color: #EDEDED;
+    box-shadow: 0px 0px 10px 2px rgba(171,171,171,0.5);
+    display: flex;
+    flex-flow: nowrap column;
+    height: 220px;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.bike-detail .bike__info {
+    align-items: center;
+    display: flex;
+    flex-flow: nowrap row;
+}
+
+.bike__img {
+    border-radius: 50%;
+    background-color: white;
+    height: 60px;
+    margin-right: 10px;
+    width: 60px;
+}
+
+.bike-detail .route {
+    margin-bottom: 0;
+}
 /* END index page */
