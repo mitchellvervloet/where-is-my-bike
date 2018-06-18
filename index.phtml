@@ -1,34 +1,18 @@
 <?php
 
     $pageTitle = '';
+    $home = true;
 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html class="home">
 
 <?php require 'components/head.phtml'; ?>
 
 <body>
 
-    <header>
-        <div class="container">
-
-            <div class="logo">
-                <span class="title-l">Where's my bike</span>
-            </div>
-
-            <nav>
-                <ul class="menu">
-                    <li>item 1</li>
-                    <li>item 2</li>
-                    <li>item 3</li>
-                </ul>
-            </nav>
-
-        </div>
-
-    </header>
+    <?php include 'components/header.phtml' ?>
 
     <div class="container content">
 
@@ -42,6 +26,7 @@
 
             <div class="bikes">
                 <span class="title-l">My bikes</span>
+                <i class="fas fa-close"></i>
                 <ul>
                     <li class="bike bike-1 is_active">
                         <div class="bike__img"></div>
@@ -58,7 +43,7 @@
                         </div>
                     </li>
                     <li class="add-bike">
-                        <a class="" href="">
+                        <a class="" href="new_bike.phtml">
                             <i class="fas fa-plus"></i>
                             <span class="">Add new bike</span>
                         </a>
@@ -76,6 +61,9 @@
                 </div>
                 <p class="distance"><span>1080</span> meters away from you</p>
                 <a class="route button" target="_blank" href="https://www.google.com/maps/place/">Show route</a>
+                <div class="close">
+                    <i class="fas fa-close"></i>
+                </div>
             </div>
 
         </div>

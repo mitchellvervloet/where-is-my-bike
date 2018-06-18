@@ -1,0 +1,52 @@
+<?php
+
+    $pageTitle = '';
+    $home = false;
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<?php require 'components/head.phtml'; ?>
+
+<body>
+
+    <?php include 'components/header.phtml' ?>
+
+    <div class="container content">
+
+        <div class="bikes">
+            <span class="title-l">My bikes</span>
+            <i class="fas fa-close"></i>
+            <ul>
+                <li class="bike bike-1">
+                    <div class="bike__img"></div>
+                    <div class="bike__content">
+                        <span class="title-xs">Merida Red</span>
+                        <p>02123904</p>
+                    </div>
+                </li>
+                <li class="bike bike-2">
+                    <div class="bike__img"></div>
+                    <div class="bike__content">
+                        <span class="title-xs">Title 2</span>
+                        <p>information 2</p>
+                    </div>
+                </li>
+                <li class="add-bike">
+                    <a class="" href="new_bike.phtml">
+                        <i class="fas fa-plus"></i>
+                        <span class="">Add new bike</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+  <?php require 'components/script.phtml'; ?>
+
+</body>
+
+</html>
