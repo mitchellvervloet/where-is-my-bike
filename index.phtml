@@ -29,19 +29,31 @@
                 <i class="fas fa-close"></i>
                 <ul>
                     <li class="bike bike-1 is_active">
-                        <div class="bike__img"></div>
+                        <div class="bike__img">
+                            <img src="img/fiets1.jpg" alt="">
+                        </div>
                         <div class="bike__content">
                             <span class="title-xs">Merida Red</span>
                             <p>02123904</p>
                         </div>
                     </li>
-                    <li class="bike bike-2">
-                        <div class="bike__img"></div>
-                        <div class="bike__content">
-                            <span class="title-xs">Title 2</span>
-                            <p>information 2</p>
-                        </div>
-                    </li>
+                    <?php
+
+                    if(isset($_COOKIE['new_bike'])):
+                        $cookie = json_decode($_COOKIE['new_bike'], true)[0];
+                        ?>
+
+                        <li class="bike bike-2">
+                            <div class="bike__img">
+                                <img src="img/fiets2.JPG" alt="">
+                            </div>
+                            <div class="bike__content">
+                                <span class="title-xs"><?php echo $cookie['name']; ?></span>
+                                <p><?php echo $cookie['number']; ?></p>
+                            </div>
+                        </li>
+
+                    <?php endif; ?>
                     <li class="add-bike">
                         <a class="" href="new_bike.phtml">
                             <i class="fas fa-plus"></i>
@@ -53,7 +65,9 @@
 
             <div class="bike-detail">
                 <div class="bike__info">
-                    <div class="bike__img"></div>
+                    <div class="bike__img">
+                        <img src="img/fiets1.jpg" alt="">
+                    </div>
                     <div class="bike__content">
                         <span class="title-xs bike__title">Merida Red</span>
                         <p class="bike__number">02123904</p>

@@ -9,6 +9,7 @@ $(document).ready(function () {
         system.activeBikeName = $('.bike.is_active span');
         system.activeBikeNumver = $('.bike.is_active p');
         system.activeBikeDistance = '1080';
+        system.activeBikeImg = 'img/fiets1.jpg';
         system.googleMapsLink = 'https://www.google.com/maps/place/';
 
         // FUNC: Init map and set props
@@ -62,6 +63,7 @@ $(document).ready(function () {
                     system.activeBikeName = $('.bike.is_active span').text();
                     system.activeBikeNumber = $('.bike.is_active p').text();
                     system.activeBikeDistance = '367';
+                    system.activeBikeImg = 'img/fiets1.jpg';
                     system.activeBikeLatLng = lat + ',' + lng;
 
                     L.marker([lat, lng], {icon: bikeMarker}).addTo(map);
@@ -74,6 +76,7 @@ $(document).ready(function () {
                     system.activeBikeName = $('.bike.is_active span').text();
                     system.activeBikeNumber = $('.bike.is_active p').text();
                     system.activeBikeDistance = '1245';
+                    system.activeBikeImg = 'img/fiets2.JPG';
                     system.activeBikeLatLng = lat + ',' + lng;
 
                     L.marker([lat, lng], {icon: bikeMarker}).addTo(map);
@@ -90,6 +93,7 @@ $(document).ready(function () {
                 $('.bike-detail .bike__title').text(system.activeBikeName);
                 $('.bike-detail .bike__number').text(system.activeBikeNumber);
                 $('.bike-detail .distance span').text(system.activeBikeDistance);
+                $('.bike-detail .bike__img img').attr('src', system.activeBikeImg);
                 $('.bike-detail .route').attr('href', system.googleMapsLink+system.activeBikeLatLng);
 
             }, function(error){
@@ -145,5 +149,26 @@ $(document).ready(function () {
         $('nav').removeClass('is_open');
 
     });
+
+    $('.create-new-bike [type="submit"]').on('click', function (e) {
+        e.preventDefault();
+
+        var name = $('.create-new-bike [name="name"]').val();
+        var number = $('.create-new-bike [name="number"]').val();
+
+        system.bike2 = [
+            {
+                'name': name,
+                'number': number
+            }
+        ];
+
+        if (name !== '' && number !== '') {
+            $.cookie('new_bike', JSON.stringify(system.bike2), { expires: 7, path: '/' });
+
+            return window.location.href = 'bikes.phtml'
+        }
+
+    })
 
 });

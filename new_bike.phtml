@@ -6,7 +6,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html class="not-home newbike">
 
 <?php require 'components/head.phtml'; ?>
 
@@ -16,7 +16,43 @@
 
     <div class="container content">
 
+        <div class="container">
 
+
+            <div class="form login-form">
+                <form class="create-new-bike" action="" method="post">
+                    <div class="img">
+                        <img src="img/no-image.png" alt="">
+                    </div>
+                    <div class="form-row">
+                        <label for="name">Name your bike</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="number">Serial number</label>
+                        <input type="text" name="number" required>
+                    </div>
+                    <div class="form-row code">
+                        <label for="code">Fill in the code on the Where's is My Bike module on the bottom of it
+                        </label>
+                        <div class="inputs">
+                            <input type="text" name="code">
+                            <input type="text" name="code">
+                            <input type="text" name="code">
+                            <input type="text" name="code">
+                            <input type="text" name="code">
+                        </div>
+
+                    </div>
+                    <div class="form-row submit-row">
+                        <input class="button expanded" type="submit" name="submit" value="Create bike">
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
 
     </div>
 

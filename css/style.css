@@ -5,7 +5,7 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-    body {
+    html:not(.not-home) body {
         background: white !important;
     }
 }
@@ -142,7 +142,8 @@ h2, .title-m {
 /* START Header */
 header {
     background-color: #FFFFFF;
-    box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 2px rgba(171,171,171,0.5);
+    border-bottom: 1px solid #EDEDED;
     display: flex;
     height: 60px;
 }
@@ -211,6 +212,10 @@ nav .menu {
     padding: 20px 0;
 }
 
+.bikes {
+    overflow: scroll;
+}
+
 .bikes .title-l {
     margin-bottom: 10px;
     padding: 0 20px;
@@ -252,6 +257,7 @@ nav .menu {
     background-color: white;
     height: 40px;
     margin-right: 10px;
+    overflow: hidden;
     width: 40px;
 }
 
@@ -287,7 +293,13 @@ nav .menu {
     background-color: white;
     height: 60px;
     margin-right: 10px;
+    overflow: hidden;
     width: 60px;
+}
+
+.bike__img img {
+    min-width: 100%;
+    height: 100%;
 }
 
 .bike-detail .route {
@@ -300,6 +312,43 @@ nav .fa-close,
 .bikes .fa-close,
 .bike-detail .close {
     display: none;
+}
+
+html.not-home .fa-bicycle,
+html.not-home .bikes-toggle span{
+    display: none;
+}
+
+.create-new-bike {
+    display: flex;
+    flex-flow: nowrap column;
+    margin-top: 20px;
+}
+
+.create-new-bike .img {
+    align-self: center;
+    border-radius: 50%;
+    border: 1px solid #EDEDED;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.login-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.create-new-bike .code .inputs {
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: space-between;
+}
+
+.create-new-bike .code .inputs input {
+    height: 50px;
+    flex-basis: 12%;
 }
 
 @media screen and (max-width: 767px) {
@@ -397,6 +446,24 @@ nav .fa-close,
         padding: 0;
     }
 
+    html.not-home .container.content {
+        height: auto;
+    }
+
+    html.not-home .bikes {
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    html.not-home .bikes .bike {
+        background-color: white;
+    }
+
+    html.not-home .bikes .title-l {
+        display: none;
+    }
+
     .content .map-container {
         background-color: #EDEDED;
         box-shadow: none;
@@ -411,7 +478,7 @@ nav .fa-close,
         height:0;
     }
 
-    .content .bikes {
+    html.home .content .bikes {
         box-shadow: none;
         background-color: white;
         height: 100vh;
@@ -425,11 +492,11 @@ nav .fa-close,
         transition: transform 0.3s ease;
     }
 
-    .bikes.is_open {
+    html.home .bikes.is_open {
         transform: translateX(0);
     }
 
-    .bikes.is_open::after {
+    html.home .bikes.is_open::after {
         background-color: rgba(138, 138, 138, 0.5);
         content: '';
         display: block;
@@ -440,7 +507,7 @@ nav .fa-close,
         width: 100vw;
     }
 
-    .bikes .fa-close {
+    html.home .bikes .fa-close {
         display: block;
         position: absolute;
         font-size: 20px;
@@ -448,13 +515,14 @@ nav .fa-close,
         right: 10px;
     }
 
-    .bikes .title-l {
+    html.home .bikes .title-l {
         font-size: 16px;
         margin-top: 6px;
     }
 
-    .bikes .bike .bike__img {
+    html.home .bikes .bike .bike__img {
         background-color: #EDEDED;
+        overflow: hidden;
     }
 
     .content .bike-detail {
@@ -497,6 +565,7 @@ nav .fa-close,
     .bike__info .bike__img {
         background-color: #EDEDED;
         height: 40px;
+        overflow: hidden;
         width: 40px;
     }
 
