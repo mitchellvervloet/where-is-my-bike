@@ -1,8 +1,12 @@
 $(document).ready(function () {
 
+    //system variable use everywhere
     var system = new Object();
 
+    //only if html has class home
     if($('html').hasClass('home')) {
+
+        // Save some data in system variable
         system.bike1Name = 'Batavus';
         system.bike1Number = '0245600';
 
@@ -20,25 +24,24 @@ $(document).ready(function () {
             var accessToken = 'pk.eyJ1IjoicHJvdGVpbnNsdXJwIiwiYSI6ImNqM2xpZ2htOTAwNzAzM2p2MG10NmFkanoifQ.Iml9qkvEU2f8ndyJJ5DnkA'; // Add token for working version
             var currentLocation = [51.9173142, 4.4849073];
 
-            // alert('hier');
-
             //current location
             navigator.geolocation.getCurrentPosition(function(location) {
 
-                // alert(location);
-
                 var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
 
+                //create map
                 var map = L.map('map', {
                     center: latlng,
                     zoom: 15
                 });
 
+                //set access token
                 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
                     minZoom: 14,
                     maxZoom: 16
                 }).addTo(map);
 
+                //create marker for user
                 var myMarker = L.icon({
                     className: 'my-marker',
                     iconUrl: 'img/placeholder.png',
@@ -46,8 +49,10 @@ $(document).ready(function () {
                     iconAnchor: [12, 24]
                 });
 
+                //set position for marker of user with current location
                 var marker = L.marker(latlng, {icon: myMarker}).addTo(map);
 
+                //create marker for bike
                 var bikeMarker = L.icon({
                     className: 'bike-marker',
                     iconUrl: 'img/bike.png',
@@ -57,6 +62,7 @@ $(document).ready(function () {
 
                 if($('.bike.is_active').hasClass('bike-1')) {
 
+                    //if bike is 1 than set data to data of bike 1
                     lat = (latlng['lat'] + 0.001);
                     lng = (latlng['lng'] + 0.005);
 
@@ -70,6 +76,7 @@ $(document).ready(function () {
 
                 } else if ($('.bike.is_active').hasClass('bike-2')) {
 
+                    //if bike is 2 than set data to data of bike 2
                     lat = (latlng['lat'] + 0.006);
                     lng = (latlng['lng'] + 0.008);
 
@@ -83,6 +90,7 @@ $(document).ready(function () {
 
                 }
 
+                //Open popup for bike on mobile
                 $('.bike-marker').on('click', function (e) {
 
                     $(this).addClass('is_clicked');
@@ -90,6 +98,7 @@ $(document).ready(function () {
 
                 });
 
+                //set data of bike in detail popup
                 $('.bike-detail .bike__title').text(system.activeBikeName);
                 $('.bike-detail .bike__number').text(system.activeBikeNumber);
                 $('.bike-detail .distance span').text(system.activeBikeDistance);
@@ -107,6 +116,7 @@ $(document).ready(function () {
 
         initMaps();
 
+        //on click listener for list items of bikes
         $('.bike').on('click', function (e) {
 
             $('.bike').removeClass('is_active');
@@ -119,18 +129,21 @@ $(document).ready(function () {
 
         });
 
+        //open bikes side slider on mobile when clicked
         $('.bikes-toggle').on('click', function (e) {
 
             $('.bikes').addClass('is_open');
 
         });
 
+        //close bikes side slider on mobile when clicked
         $('.bikes .fa-close').on('click', function (e) {
 
             $('.bikes').removeClass('is_open');
 
         });
 
+        //open bike detail popup on mobile
         $('.bike-detail .fa-close').on('click', function (e) {
 
             $('.bike-detail').removeClass('is_open');
@@ -138,18 +151,21 @@ $(document).ready(function () {
         });
     }
 
+    //open menu on mobile
     $('.menu-toggle').on('click', function (e) {
 
         $('nav').addClass('is_open');
 
     });
 
+    //close menu on mobile
     $('nav .fa-close').on('click', function (e) {
 
         $('nav').removeClass('is_open');
 
     });
 
+    //create new bike
     $('.create-new-bike [type="submit"]').on('click', function (e) {
         e.preventDefault();
 
